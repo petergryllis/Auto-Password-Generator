@@ -33,6 +33,7 @@ var symbolsArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", 
 // link to generate password button
 var generateBtn = document.querySelector("#generate");
 
+//event listener to take values from form in HTML
 form.addEventListener("click", e => {
   var takecharacterLength = lengthHTML.value
   var includeuppercase = uppercaseHTML.checked
@@ -41,13 +42,18 @@ form.addEventListener("click", e => {
   var includesymbols = symbolsHTML.checked
   var password = generatePassword
   (takecharacterLength, includeuppercase, includelowercase, includenumbers, includesymbols)
+  passwordDisplay.innerText = password
 } )
 
 
 
 
 // Write password to the #password input
-function writePassword() {
+function generatePassword (takecharacterlength, includeuppercase, includelowercase, includenumbers, includesymbols) {
+  let charCodes = LowercaseArray
+  if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
+  if (includesymbols) charCodes = charCodes.concat(symbolsArray)
+  if (includenumbers) charCodes = 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
