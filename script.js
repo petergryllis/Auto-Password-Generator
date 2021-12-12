@@ -1,3 +1,7 @@
+//adding object for form
+
+var form = document.getElementById('passwordGeneratorForm');
+
 //link to html DOM elements
 var passwordHTML = document.getElementById("password");
 var lengthHTML = document.getElementById("length");
@@ -29,6 +33,17 @@ var symbolsArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", 
 // link to generate password button
 var generateBtn = document.querySelector("#generate");
 
+body.addEventListener("click", e => {
+  var takecharacterLength = lengthHTML.value
+  var includeuppercase = uppercaseHTML.checked
+  var includenumbers = numbersHTML.checked
+  var includesymbols = symbolsHTML.checked
+  var password = 
+} )
+
+
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -39,4 +54,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
