@@ -31,20 +31,27 @@ var numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var symbolsArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // link to generate password button
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("generate");
+
+var randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+
+}
+
 
 //event listener to take values from form in HTML
-form.addEventListener("click", e => {
-  var takecharacterLength = lengthHTML.value
-  var includeuppercase = uppercaseHTML.checked
-  var includelowercase = lowercaseHTML.checked
-  var includenumbers = numbersHTML.checked
-  var includesymbols = symbolsHTML.checked
-  var password = generate.click
-  (takecharacterLength, includeuppercase, includelowercase, includenumbers, includesymbols)
-  passwordDisplay.innerText = password
-} )
+generate.addEventListener("click", e => {
+  var takecharacterLength = lengthHTML.value;
+  var includeuppercase = uppercaseHTML.checked;
+  var includelowercase = lowercaseHTML.checked;
+  var includenumbers = numbersHTML.checked;
+  var includesymbols = symbolsHTML.checked;
 
+  resultEl.innerText = generatePassword(array);
+});
 
 
 
@@ -71,5 +78,7 @@ function array(low, high) {
   }
   return array
 }
+
+
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword)
