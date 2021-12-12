@@ -63,5 +63,13 @@ function generatePassword (takecharacterlength, includeuppercase, includelowerca
   return password.join('');
 }
 
+
+function array(low, high) {
+  var array = [UppercaseArray, LowercaseArray, numbersArray, symbolsArray]
+  for (let i = low; i <= high; i++) {
+    array.push(i)
+  }
+  return array
+}
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
