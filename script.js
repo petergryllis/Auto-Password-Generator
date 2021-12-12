@@ -9,7 +9,9 @@ var symbolsHTML = document.getElementById("symbols");
 //Establish Arrays for the different variables that
 //can be used to generate password i.e. uppercase, lowercase,
 //numbers and symbols
-var 
+var UppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+var LowercaseArray = 
 
 
 
