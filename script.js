@@ -40,7 +40,6 @@ var randomFunc = {
   symbol: getRandomSymbol
 }
 
-
 //event listener to take values from form in HTML
 generate.addEventListener("click", e => {
   var takecharacterLength = lengthHTML.value;
@@ -62,6 +61,18 @@ function generatePassword(lower, upper, number, symbol, takecharacterLength) {
     if(typesCount === 0) {
       return '';
     }
+
+    for(let i=0; i<length; i+=typesCount) {
+      typesArr.forEach(type => {
+        const funcName = Object.keys(type)[0];
+        generatedPassword += randomFunc[funcName]();
+      });
+    }
+    
+    const finalPassword = generatedPassword.slice(0, length);
+    
+    return finalPassword;
+  }
 
 //   let charCodes = LowercaseArray
 //   if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
@@ -127,4 +138,4 @@ function getRandomNumber() {
 function getRandomSymbol() {
 	const symbols = '!@#$%^&*(){}[]=<>/,.'
 	return symbols[Math.floor(Math.random() * symbols.length)];
-}}
+}
