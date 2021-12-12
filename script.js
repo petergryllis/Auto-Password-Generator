@@ -11,6 +11,8 @@ var symbolsHTML = document.getElementById("symbols");
 //numbers and symbols
 var UppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+console.log(UppercaseArray);
+
 //use conversion function to convert uppercase array to lowercase
 var LowercaseArray = UppercaseArray.map(function (converttolowercase) {
   return converttolowercase.toLowerCase();
