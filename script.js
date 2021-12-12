@@ -24,7 +24,7 @@ var numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 //For testing purposes console.log(numbersArray);
 
-
+var symbolsArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // link to generate password button
 var generateBtn = document.querySelector("#generate");
