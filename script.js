@@ -38,7 +38,6 @@ var randomFunc = {
   upper: getRandomUpper,
   number: getRandomNumber,
   symbol: getRandomSymbol
-
 }
 
 
@@ -50,53 +49,75 @@ generate.addEventListener("click", e => {
   var includenumbers = numbersHTML.checked;
   var includesymbols = symbolsHTML.checked;
 
-  resultEl.innerText = generatePassword(array);
+  resultEl.innerText = generatePassword(takecharacterLength, includeuppercase, includelowercase, includenumbers, includesymbols);
 });
 
 
 
 // Write password to the #password input
-function generatePassword (takecharacterlength, includeuppercase, includelowercase, includenumbers, includesymbols) {
-  let charCodes = LowercaseArray
-  if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
-  if (includesymbols) charCodes = charCodes.concat(symbolsArray)
-  if (includenumbers) charCodes = charCodes.concat(numbersArray)
+function generatePassword (lower, upper, number, symbol, takecharacterLength); {
+  
+//   let charCodes = LowercaseArray
+//   if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
+//   if (includesymbols) charCodes = charCodes.concat(symbolsArray)
+//   if (includenumbers) charCodes = charCodes.concat(numbersArray)
 
-  var password = []
-  for (let i = 0; i < takecharacterLength; i++) {
-    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
-    password.push(String.fromCharCode(characterCode))
-  }
-  return password.join('');
-}
+//   var password = []
+//   for (let i = 0; i < takecharacterLength; i++) {
+//     var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+//     password.push(String.fromCharCode(characterCode))
+//   }
+//   return password.join('');
+// }
 
 
-function array(low, high) {
-  var array = [UppercaseArray, LowercaseArray, numbersArray, symbolsArray]
+function getRandomLower(low, high) {
+  var array1 = [LowercaseArray]
   for (let i = low; i <= high; i++) {
-    array.push(i)
+    array1.push(i)
   }
-  return array
+  return array1
+}
+
+function getRandomUpper(low, high) {
+  var array2 = [UppercaseArray]
+  for (let i = low; i <= high; i++) {
+    array2.push(i)
+  }
+  return array2
+}
+function getRandomNumber(low, high) {
+  var array3 = [numbersArray]
+  for (let i = low; i <= high; i++) {
+    array3.push(i)
+  }
+  return array3
+}
+function getRandomSymbol(low, high) {
+  var array4 = [symbolsArray]
+  for (let i = low; i <= high; i++) {
+    array4.push(i)
+  }
+  return array4
 }
 
 
+// function getRandomLower() {
+// 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+// }
 
-function getRandomLower() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+// function getRandomUpper() {
+// 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+// }
 
-function getRandomUpper() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+// function getRandomNumber() {
+// 	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+// }
 
-function getRandomNumber() {
-	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function getRandomSymbol() {
-	const symbols = '!@#$%^&*(){}[]=<>/,.'
-	return symbols[Math.floor(Math.random() * symbols.length)];
-}
+// function getRandomSymbol() {
+// 	const symbols = '!@#$%^&*(){}[]=<>/,.'
+// 	return symbols[Math.floor(Math.random() * symbols.length)];
+// }
 
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword)
