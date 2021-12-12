@@ -11,20 +11,20 @@ var symbolsHTML = document.getElementById("symbols");
 //numbers and symbols
 var UppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-//console.log markers to check that array is logged in console - for testing purposes
-// console.log(UppercaseArray);
+// For testing purposes console.log(UppercaseArray);
 
 //use conversion function to convert uppercase array to lowercase
 var LowercaseArray = UppercaseArray.map(function (converttolowercase) {
   return converttolowercase.toLowerCase();
 });
 
-//console.log markers to check that array is logged in console - for testing purposes
-// console.log(LowercaseArray);
+// For testing purposes console.log(LowercaseArray);
 
 var numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// console.log(numbersArray);
+//For testing purposes console.log(numbersArray);
+
+
 
 // link to generate password button
 var generateBtn = document.querySelector("#generate");
