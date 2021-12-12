@@ -40,7 +40,7 @@ form.addEventListener("click", e => {
   var includelowercase = lowercaseHTML.checked
   var includenumbers = numbersHTML.checked
   var includesymbols = symbolsHTML.checked
-  var password = generatePassword
+  var password = generate.click
   (takecharacterLength, includeuppercase, includelowercase, includenumbers, includesymbols)
   passwordDisplay.innerText = password
 } )
@@ -53,12 +53,14 @@ function generatePassword (takecharacterlength, includeuppercase, includelowerca
   let charCodes = LowercaseArray
   if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
   if (includesymbols) charCodes = charCodes.concat(symbolsArray)
-  if (includenumbers) charCodes = 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  if (includenumbers) charCodes = charCodes.concat(numbersArray)
 
-  passwordText.value = password;
-
+  var password = []
+  for (let i = 0; i < takecharacterLength; i++) {
+    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+    password.push(String.fromCharCode(characterCode))
+  }
+  return password.join('');
 }
 
 // Add event listener to generate button
