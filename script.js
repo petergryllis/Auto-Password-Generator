@@ -6,19 +6,14 @@ var lowercaseHTML = document.getElementById("lowercase");
 var numbersHTML = document.getElementById("numbers");
 var symbolsHTML = document.getElementById("symbols");
 
+//Establish Arrays for the different variables that
+//can be used to generate password i.e. uppercase, lowercase,
+//numbers and symbols
+var 
 
 
 
-
-
-
-
-
-
-
-
-
-// Assignment Code
+// link to generate password button
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
