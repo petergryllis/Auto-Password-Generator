@@ -2,7 +2,9 @@
 var passwordHTML = document.getElementById("password");
 var lengthHTML = document.getElementById("length");
 var uppercaseHTML = document.getElementById("uppercase");
-var 
+var lowercaseHTML = document.getElementById("lowercase");
+var numbersHTML = document.getElementById("numbers");
+var symbolsHTML = document.getElementById("symbols");
 
 
 
