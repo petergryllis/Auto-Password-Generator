@@ -53,19 +53,20 @@ function getRandomSymbol() {
 	return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-var randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol
-}
+// var randomFunc = {
+//   lower: getRandomLower,
+//   upper: getRandomUpper,
+//   number: getRandomNumber,
+//   symbol: getRandomSymbol
+// }
 
 
 console.log(generateBtn);
 console.log(generatePassword);
 // eventlistener to take values from form in HTML
 generateBtn.addEventListener("click", e => {
-  // debugger;
+  e.preventDefault()
+ 
   var takecharacterLength = lengthHTML.value;
   var includeuppercase = uppercaseHTML.checked;
   var includelowercase = lowercaseHTML.checked;
@@ -73,7 +74,24 @@ generateBtn.addEventListener("click", e => {
   var includesymbols = symbolsHTML.checked;
   // console.log(includelowercase);
   debugger;
-  var password = generatePassword(takecharacterLength, includelowercase, includeuppercase, includenumbers, includesymbols);
+  
+  const emptyobj = {
+    length: takecharacterLength
+  }
+  if(includeuppercase){
+    emptyobj.uppercase = getRandomUpper
+  }
+  if(includelowercase) {
+    emptyobj.lowercase = getRandomLower
+  }
+  if(includenumbers) {
+    emptyobj.numbers = getRandomNumber
+  }
+  if(includesymbols) {
+    emptyobj.symbols = getRandomSymbol
+  }
+
+  var password = generatePassword(emptyobj);
 
   // resultEl.innerText = password;
   resultEl.innerText = password;
@@ -98,11 +116,20 @@ generateBtn.addEventListener("click", e => {
 // }
 // Write password to the #password input
 
-function generatePassword(lower, upper, number, symbol, takecharacterLength) {
-  debugger;
+// function generatePassword(obj) {
+//   let data = Object.values(obj)
+//   let length = data.splice(0, 1)
+//   let password = ''
+//   if password.length < Object.length
+//   console.log(password)
+}
+
+// generateBtn.addEventListener("click", generatePassword);
+
+function generatePassword(emptyobj){
   let generatePassword = '';
-  var typesCount = lower + upper + number + symbol;
-  var typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.type(item)[0]);
+  var typesCount = data.splice(0, 1);
+  var typesArr = Object.values(emptyobj).filter(item => Object.type(emptyobj)[0]);
   console.log(typesArr);
     if(typesCount === 0) {
       return '';
@@ -110,15 +137,14 @@ function generatePassword(lower, upper, number, symbol, takecharacterLength) {
 
     for(let i=0; i<typesArr.length; i++) {
       typesArr.forEach(type => {
-        const funcName = Object.type(randomFunc)[0];
-        generatePassword += randomFunc[funcName]();
+        const funcName = Object.type(emptyobj)[0];
+        generatePassword += emptyobj();
       });
     }
     
     const finalPassword = generatePassword.slice(0, length);
     
     return finalPassword;
-    window.textContent = finalPassword;
   }
 
 // generateBtn.addEventListener("click", writePassword);
