@@ -31,7 +31,7 @@ var numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var symbolsArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // link to generate password button
-var generateBtn = document.querySelector("generate");
+var generateBtn = document.getElementById("generate");
 
 var randomFunc = {
   lower: getRandomLower,
@@ -39,6 +39,7 @@ var randomFunc = {
   number: getRandomNumber,
   symbol: getRandomSymbol
 }
+
 
 // clipboard.addEventListener('click', () => {
 // 	const textarea = document.createElement('textarea');
@@ -56,7 +57,7 @@ var randomFunc = {
 
 
 //event listener to take values from form in HTML
-generate.addEventListener("click", e => {
+generateBtn.addEventListener("click", e => {
   var takecharacterLength = lengthHTML.value;
   var includeuppercase = uppercaseHTML.checked;
   var includelowercase = lowercaseHTML.checked;
@@ -66,11 +67,13 @@ generate.addEventListener("click", e => {
   resultEl.innerText = generatePassword(takecharacterLength, includeuppercase, includelowercase, includenumbers, includesymbols);
 });
 
+function generatePassword () {
 
+}
 
 // Write password to the #password input
 function generatePassword(lower, upper, number, symbol, takecharacterLength) {
-  let generatedPassword = '';
+  let generatePassword = '';
   var typesCount = lower + upper + number + symbol;
   var typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
     if(typesCount === 0) {
@@ -80,59 +83,15 @@ function generatePassword(lower, upper, number, symbol, takecharacterLength) {
     for(let i=0; i<length; i+=typesCount) {
       typesArr.forEach(type => {
         const funcName = Object.keys(type)[0];
-        generatedPassword += randomFunc[funcName]();
+        generatePassword += randomFunc[funcName]();
       });
     }
     
-    const finalPassword = generatedPassword.slice(0, length);
+    const finalPassword = generatePassword.slice(0, length);
     
     return finalPassword;
+    console.log(finalPassword);
   }
-
-//   let charCodes = LowercaseArray
-//   if (includeuppercase) charCodes = charCodes.concat(UppercaseArray)
-//   if (includesymbols) charCodes = charCodes.concat(symbolsArray)
-//   if (includenumbers) charCodes = charCodes.concat(numbersArray)
-
-//   var password = []
-//   for (let i = 0; i < takecharacterLength; i++) {
-//     var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
-//     password.push(String.fromCharCode(characterCode))
-//   }
-//   return password.join('');
-// }
-
-
-// function getRandomLower(low, high) {
-//   var array1 = [LowercaseArray]
-//   for (let i = low; i <= high; i++) {
-//     array1.push(i)
-//   }
-//   return array1
-// }
-
-// function getRandomUpper(low, high) {
-//   var array2 = [UppercaseArray]
-//   for (let i = low; i <= high; i++) {
-//     array2.push(i)
-//   }
-//   return array2
-// }
-// function getRandomNumber(low, high) {
-//   var array3 = [numbersArray]
-//   for (let i = low; i <= high; i++) {
-//     array3.push(i)
-//   }
-//   return array3
-// }
-
-// function getRandomSymbol(low, high) {
-//   var array4 = [symbolsArray]
-//   for (let i = low; i <= high; i++) {
-//     array4.push(i)
-//   }
-//   return array4
-// }}
 
 
 function getRandomLower() {
